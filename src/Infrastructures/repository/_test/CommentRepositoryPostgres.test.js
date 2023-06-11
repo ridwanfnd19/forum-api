@@ -173,7 +173,6 @@ describe('CommentRepositoryPostgres', () => {
       const respose = await commentRepositoryPostgres.getCommentsByThreadId('thread-123');
 
       // Assert
-      expect(respose).toHaveLength(2);
       expect(respose).toStrictEqual([
         {
           id: 'comment-123',

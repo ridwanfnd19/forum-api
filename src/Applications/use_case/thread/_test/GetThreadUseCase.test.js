@@ -22,8 +22,7 @@ describe('GetThreadUserCase', () => {
     const mockAddThreadRepository= new ThreadRepository();
 
     /** mocking needed function */
-    mockAddThreadRepository.getThreadById = jest.fn()
-        .mockImplementation(() => Promise.resolve([]));
+    mockAddThreadRepository.getThreadById = jest.fn(() => Promise.resolve([]));
 
     // create use case instance
     const getThreadUseCase = new GetThreadUseCase({
@@ -78,44 +77,35 @@ describe('GetThreadUserCase', () => {
     const mockRepliesRepository= new RepliesRepository();
 
     /** mocking needed function */
-    mockThreadRepository.getThreadById = jest.fn()
-        .mockImplementation(() => Promise.resolve([
-          {
-            id: 'thread-123',
-            title: 'title',
-            date: Object('2023-04-17T16:58:21.027Z'),
-            username: 'username',
-          },
-        ]));
-
-    mockCommentRepository.getCommentsByThreadId = jest.fn()
-        .mockImplementation(() => Promise.resolve([
-          {
-            id: 'comment-123',
-            username: 'username2',
-            date: Object('2023-04-17T16:58:21.027Z'),
-            is_delete: true,
-            content: 'sebuah comment',
-          },
-        ]));
-
-    mockRepliesRepository.getRepliesByThreadIdAndCommentId = jest.fn()
-        .mockImplementation(() => Promise.resolve([
-          {
-            id: 'replies-123',
-            username: 'username',
-            date: Object('2023-04-17T16:58:21.027Z'),
-            is_delete: true,
-            content: 'sebuah replies',
-          },
-          {
-            id: 'replies-124',
-            username: 'indonesia',
-            date: Object('2023-04-17T16:58:21.027Z'),
-            is_delete: false,
-            content: 'sebuah replies',
-          },
-        ]));
+    mockThreadRepository.getThreadById = jest.fn(() => Promise.resolve([{
+      id: 'thread-123',
+      title: 'title',
+      date: Object('2023-04-17T16:58:21.027Z'),
+      username: 'username',
+    }]));
+    mockCommentRepository.getCommentsByThreadId = jest.fn(() => Promise.resolve([{
+      id: 'comment-123',
+      username: 'username2',
+      date: Object('2023-04-17T16:58:21.027Z'),
+      is_delete: true,
+      content: 'sebuah comment',
+    }]));
+    mockRepliesRepository.getRepliesByThreadIdAndCommentId = jest.fn(() => Promise.resolve([
+      {
+        id: 'replies-123',
+        username: 'username',
+        date: Object('2023-04-17T16:58:21.027Z'),
+        is_delete: true,
+        content: 'sebuah replies',
+      },
+      {
+        id: 'replies-124',
+        username: 'indonesia',
+        date: Object('2023-04-17T16:58:21.027Z'),
+        is_delete: false,
+        content: 'sebuah replies',
+      },
+    ]));
 
     // create use case instance
     const getThreadUseCase = new GetThreadUseCase({
@@ -176,44 +166,39 @@ describe('GetThreadUserCase', () => {
     const mockRepliesRepository= new RepliesRepository();
 
     /** mocking needed function */
-    mockThreadRepository.getThreadById = jest.fn()
-        .mockImplementation(() => Promise.resolve([
-          {
-            id: 'thread-123',
-            title: 'title',
-            date: Object('2023-04-17T16:58:21.027Z'),
-            username: 'username',
-          },
-        ]));
-
-    mockCommentRepository.getCommentsByThreadId = jest.fn()
-        .mockImplementation(() => Promise.resolve([
-          {
-            id: 'comment-123',
-            username: 'username2',
-            date: Object('2023-04-17T16:58:21.027Z'),
-            is_delete: false,
-            content: 'sebuah comment',
-          },
-        ]));
-
-    mockRepliesRepository.getRepliesByThreadIdAndCommentId = jest.fn()
-        .mockImplementation(() => Promise.resolve([
-          {
-            id: 'replies-123',
-            username: 'username',
-            date: Object('2023-04-17T16:58:21.027Z'),
-            is_delete: true,
-            content: 'sebuah replies',
-          },
-          {
-            id: 'replies-124',
-            username: 'indonesia',
-            date: Object('2023-04-17T16:58:21.027Z'),
-            is_delete: false,
-            content: 'sebuah replies',
-          },
-        ]));
+    mockThreadRepository.getThreadById = jest.fn(() => Promise.resolve([
+      {
+        id: 'thread-123',
+        title: 'title',
+        date: Object('2023-04-17T16:58:21.027Z'),
+        username: 'username',
+      },
+    ]));
+    mockCommentRepository.getCommentsByThreadId = jest.fn(() => Promise.resolve([
+      {
+        id: 'comment-123',
+        username: 'username2',
+        date: Object('2023-04-17T16:58:21.027Z'),
+        is_delete: false,
+        content: 'sebuah comment',
+      },
+    ]));
+    mockRepliesRepository.getRepliesByThreadIdAndCommentId = jest.fn(() => Promise.resolve([
+      {
+        id: 'replies-123',
+        username: 'username',
+        date: Object('2023-04-17T16:58:21.027Z'),
+        is_delete: true,
+        content: 'sebuah replies',
+      },
+      {
+        id: 'replies-124',
+        username: 'indonesia',
+        date: Object('2023-04-17T16:58:21.027Z'),
+        is_delete: false,
+        content: 'sebuah replies',
+      },
+    ]));
 
     // create use case instance
     const getThreadUseCase = new GetThreadUseCase({

@@ -52,10 +52,8 @@ describe('DeleteCommentUseCase', () => {
     const mockCommentRepository= new CommentRepository();
 
     /** mocking needed function */
-    mockCommentRepository.findCommentsById = jest.fn()
-        .mockImplementation(() => Promise.resolve([]));
-    mockCommentRepository.deleteCommentById = jest.fn()
-        .mockImplementation(() => Promise.resolve());
+    mockCommentRepository.findCommentsById = jest.fn(() => Promise.resolve([]));
+    mockCommentRepository.deleteCommentById = jest.fn(() => Promise.resolve());
 
     // create use case instance
     const deleteCommentUseCase = new DeleteCommentUseCase({
@@ -88,10 +86,8 @@ describe('DeleteCommentUseCase', () => {
     const mockCommentRepository= new CommentRepository();
 
     /** mocking needed function */
-    mockCommentRepository.findCommentsById = jest.fn()
-        .mockImplementation(() => Promise.resolve(expectedVerifyOwner));
-    mockCommentRepository.deleteCommentById = jest.fn()
-        .mockImplementation(() => Promise.resolve([{id: 'comment-123'}]));
+    mockCommentRepository.findCommentsById = jest.fn(() => Promise.resolve(expectedVerifyOwner));
+    mockCommentRepository.deleteCommentById = jest.fn(() => Promise.resolve([{id: 'comment-123'}]));
 
     // create use case instance
     const deleteCommentUseCase = new DeleteCommentUseCase({
@@ -125,10 +121,8 @@ describe('DeleteCommentUseCase', () => {
     const mockCommentRepository= new CommentRepository();
 
     /** mocking needed function */
-    mockCommentRepository.findCommentsById = jest.fn()
-        .mockImplementation(() => Promise.resolve(expectedVerifyOwner));
-    mockCommentRepository.deleteCommentById = jest.fn()
-        .mockImplementation(() => Promise.resolve([{id: 'comment-123'}]));
+    mockCommentRepository.findCommentsById = jest.fn(() => Promise.resolve(expectedVerifyOwner));
+    mockCommentRepository.deleteCommentById = jest.fn(() => Promise.resolve([{id: 'comment-123'}]));
 
     // create use case instance
     const deleteCommentUseCase = new DeleteCommentUseCase({

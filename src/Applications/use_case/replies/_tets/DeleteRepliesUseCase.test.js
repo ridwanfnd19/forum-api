@@ -71,8 +71,7 @@ describe('DeleteRepliesUseCase', () => {
     const mockThreadRepository = new ThreadRepository();
 
     /** mocking needed function */
-    mockThreadRepository.getThreadById = jest.fn()
-        .mockImplementation(() => Promise.resolve([]));
+    mockThreadRepository.getThreadById = jest.fn(() => Promise.resolve([]));
 
     // create use case instance
     const deleteRepliesUseCase = new DeleteRepliesUseCase({
@@ -97,10 +96,10 @@ describe('DeleteRepliesUseCase', () => {
     const mockCommentRepository = new CommentRepository();
 
     /** mocking needed function */
-    mockThreadRepository.getThreadById = jest.fn()
-        .mockImplementation(() => Promise.resolve([{id: 'thread-123', title: 'title', body: 'body', date: 'date', username: 'username'}]));
-    mockCommentRepository.findCommentsById = jest.fn()
-        .mockImplementation(() => Promise.resolve([]));
+    mockThreadRepository.getThreadById = jest.fn(() => Promise.resolve([{
+      id: 'thread-123', title: 'title', body: 'body', date: 'date', username: 'username',
+    }]));
+    mockCommentRepository.findCommentsById = jest.fn(() => Promise.resolve([]));
 
     // create use case instance
     const deleteRepliesUseCase = new DeleteRepliesUseCase({
@@ -127,12 +126,14 @@ describe('DeleteRepliesUseCase', () => {
     const mockRepliesRepository = new RepliesRepository();
 
     /** mocking needed function */
-    mockThreadRepository.getThreadById = jest.fn()
-        .mockImplementation(() => Promise.resolve([{id: 'thread-123', title: 'title', body: 'body', date: 'date', username: 'username'}]));
-    mockCommentRepository.findCommentsById = jest.fn()
-        .mockImplementation(() => Promise.resolve([{id: 'comment-123', content: 'sebuah content', threadId: 'thread-123', owner: 'user-123', date: '2021-08-08T07:19:09.775Z', is_delete: true}]));
-    mockRepliesRepository.findRepliesById = jest.fn()
-        .mockImplementation(() => Promise.resolve([]));
+    mockThreadRepository.getThreadById = jest.fn(() => Promise.resolve([{
+      id: 'thread-123', title: 'title', body: 'body', date: 'date', username: 'username',
+    }]));
+    mockCommentRepository.findCommentsById = jest.fn(() => Promise.resolve([{
+      id: 'comment-123', content: 'sebuah content', threadId: 'thread-123',
+      owner: 'user-123', date: '2021-08-08T07:19:09.775Z', is_delete: true,
+    }]));
+    mockRepliesRepository.findRepliesById = jest.fn(() => Promise.resolve([]));
 
     // create use case instance
     const deleteRepliesUseCase = new DeleteRepliesUseCase({
@@ -160,12 +161,16 @@ describe('DeleteRepliesUseCase', () => {
     const mockRepliesRepository = new RepliesRepository();
 
     /** mocking needed function */
-    mockThreadRepository.getThreadById = jest.fn()
-        .mockImplementation(() => Promise.resolve([{id: 'thread-123', title: 'title', body: 'body', date: 'date', username: 'username'}]));
-    mockCommentRepository.findCommentsById = jest.fn()
-        .mockImplementation(() => Promise.resolve([{id: 'comment-123', content: 'sebuah content', threadId: 'thread-123', owner: 'user-123', date: '2021-08-08T07:19:09.775Z', is_delete: true}]));
-    mockRepliesRepository.findRepliesById = jest.fn()
-        .mockImplementation(() => Promise.resolve([{id: 'comment-123', owner: 'user-124'}]));
+    mockThreadRepository.getThreadById = jest.fn(() => Promise.resolve([{
+      id: 'thread-123', title: 'title', body: 'body', date: 'date', username: 'username',
+    }]));
+    mockCommentRepository.findCommentsById = jest.fn(() => Promise.resolve([{
+      id: 'comment-123', content: 'sebuah content', threadId: 'thread-123',
+      owner: 'user-123', date: '2021-08-08T07:19:09.775Z', is_delete: true,
+    }]));
+    mockRepliesRepository.findRepliesById = jest.fn(() => Promise.resolve([{
+      id: 'comment-123', owner: 'user-124',
+    }]));
 
     // create use case instance
     const deleteRepliesUseCase = new DeleteRepliesUseCase({
@@ -193,14 +198,18 @@ describe('DeleteRepliesUseCase', () => {
     const mockRepliesRepository = new RepliesRepository();
 
     /** mocking needed function */
-    mockThreadRepository.getThreadById = jest.fn()
-        .mockImplementation(() => Promise.resolve([{id: 'thread-123', title: 'title', body: 'body', date: 'date', username: 'username'}]));
-    mockCommentRepository.findCommentsById = jest.fn()
-        .mockImplementation(() => Promise.resolve([{id: 'comment-123', content: 'sebuah content', threadId: 'thread-123', owner: 'user-123', date: '2021-08-08T07:19:09.775Z', is_delete: true}]));
-    mockRepliesRepository.findRepliesById = jest.fn()
-        .mockImplementation(() => Promise.resolve([{id: 'replies-123', content: 'sebuah content', threadId: 'thread-123', commentId: 'comment-123', owner: 'user-123', date: '2021-08-08T07:19:09.775Z', is_delete: true}]));
-    mockRepliesRepository.deleteRepliesById = jest.fn()
-        .mockImplementation(() => Promise.resolve([{id: 'replies-123'}]));
+    mockThreadRepository.getThreadById = jest.fn(() => Promise.resolve([{
+      id: 'thread-123', title: 'title', body: 'body', date: 'date', username: 'username',
+    }]));
+    mockCommentRepository.findCommentsById = jest.fn(() => Promise.resolve([{
+      id: 'comment-123', content: 'sebuah content', threadId: 'thread-123',
+      owner: 'user-123', date: '2021-08-08T07:19:09.775Z', is_delete: true,
+    }]));
+    mockRepliesRepository.findRepliesById = jest.fn(() => Promise.resolve([{
+      id: 'replies-123', content: 'sebuah content', threadId: 'thread-123',
+      commentId: 'comment-123', owner: 'user-123', date: '2021-08-08T07:19:09.775Z', is_delete: true,
+    }]));
+    mockRepliesRepository.deleteRepliesById = jest.fn(() => Promise.resolve([{id: 'replies-123'}]));
 
     // create use case instance
     const deleteRepliesUseCase = new DeleteRepliesUseCase({
