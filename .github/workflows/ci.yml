@@ -13,9 +13,8 @@ jobs:
             postgres:
                 image: postgres
                 env:
-                    POSTGRES_USER: your_username
-                    POSTGRES_PASSWORD: your_password
-                    POSTGRES_DB: your_database_name
+                    POSTGRES_USER: developer
+                    POSTGRES_PASSWORD: supersecretpassword
                 ports:
                     - 5433:5432
                 options: >-
