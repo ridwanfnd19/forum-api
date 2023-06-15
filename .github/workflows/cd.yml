@@ -34,12 +34,12 @@ jobs:
       #   run: docker push app
 
       - name: Deploy to Docker Compose
-        uses: docker/compose-action@1.3.3
+        uses: isbang/compose-action@v1.4.1
         with:
           compose-file: docker-compose.yml
-          compose-variables: |
-            PGHOST=postgres
-            PGUSER=developer
-            PGDATABASE=forumapi
-            PGPASSWORD=supersecretpassword
-            PGPORT=5432
+        env:
+          PGHOST: 'postgres'
+          PGUSER: 'developer'
+          PGDATABASE: 'forumapi'
+          PGPASSWORD: 'supersecretpassword'
+          PGPORT: 5432
