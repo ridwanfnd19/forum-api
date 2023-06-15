@@ -1,16 +1,26 @@
 version: '3.8'
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - '5000:5000'
-    depends_on:
-      - db
   db:
+    container_name: postgres
     image: postgres
+    networks:
+      - forumapi_network
     environment:
       POSTGRES_USER: developer
       POSTGRES_PASSWORD: supersecretpassword
       POSTGRES_DB: forumapi
+  app:
+    container_name: app
+    networks:
+      - forumapi_network
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 5000:5000
+    depends_on:
+      - db
+
+networks:
+  forumapi_network:
+    name: forumapi_network
