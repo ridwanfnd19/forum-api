@@ -34,6 +34,12 @@ jobs:
       #   run: docker push app
 
       - name: Deploy to Docker Compose
-        run: |
-          echo "$ENV_CONFIG" > .env
-          docker-compose up -d
+        uses: docker/compose-action@1.3.3
+        with:
+          compose-file: docker-compose.yml
+          compose-variables: |
+            PGHOST=postgres
+            PGUSER=developer
+            PGDATABASE=forumapi
+            PGPASSWORD=supersecretpassword
+            PGPORT=5432
