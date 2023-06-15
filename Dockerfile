@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Menambahkan tabel ke database
-RUN npm run migrate up
+# RUN npm run migrate up
 
 # Expose port
 EXPOSE 5000
