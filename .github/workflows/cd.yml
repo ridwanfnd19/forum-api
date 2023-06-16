@@ -32,4 +32,4 @@ jobs:
   
       - name: Run database migration
         run: |
-          docker-compose exec app npm run migrate up
+          docker-compose exec -T app npm run migrate up
