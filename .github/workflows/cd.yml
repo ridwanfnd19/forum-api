@@ -1,35 +1,35 @@
-name: Continuous Deployment
+# name: Continuous Deployment
 
-env:
-  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-  PGHOST: ${{ secrets.PGHOST }}
-  PGUSER: ${{ secrets.PGUSER }}
-  PGDATABASE: ${{ secrets.PGDATABASE }}
-  PGPASSWORD: ${{ secrets.PGPASSWORD }}
-  PGPORT: ${{ secrets.PGPORT }}
+# env:
+#   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+#   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+#   PGHOST: ${{ secrets.PGHOST }}
+#   PGUSER: ${{ secrets.PGUSER }}
+#   PGDATABASE: ${{ secrets.PGDATABASE }}
+#   PGPASSWORD: ${{ secrets.PGPASSWORD }}
+#   PGPORT: ${{ secrets.PGPORT }}
 
-on: 
-  push:
-    branches:
-      - master
+# on: 
+#   push:
+#     branches:
+#       - master
 
-jobs:
-  Deploy-Production:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14
-      - name: Install dependencies
-        run: npm install
-      - name: Install Vercel CLI
-        run: npm install --global vercel@latest
-      - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-      - name: Build Project Artifacts
-        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
-      - name: Deploy Project Artifacts to Vercel
-        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+# jobs:
+#   Deploy-Production:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - name: Set up Node.js
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: 14
+#       - name: Install dependencies
+#         run: npm install
+#       - name: Install Vercel CLI
+#         run: npm install --global vercel@latest
+#       - name: Pull Vercel Environment Information
+#         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+#       - name: Build Project Artifacts
+#         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+#       - name: Deploy Project Artifacts to Vercel
+#         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
