@@ -12,6 +12,14 @@ const routes = (handler) => ([
     path: '/threads/{threadId}',
     handler: handler.getThreadHandler,
   },
+  {
+    method: 'PUT',
+    path: '/threads/{threadId}/comments/{commentId}/likes',
+    handler: handler.putLikeCommentHandler,
+    options: {
+      auth: 'forumapi_jwt',
+    },
+  },
 ]);
 
 module.exports = routes;

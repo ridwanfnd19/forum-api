@@ -1,9 +1,19 @@
 const createServer = require('../createServer');
 
 describe('HTTP server', () => {
+  let server;
+
+  beforeAll(async () => {
+    server = await createServer({});
+    await server.start();
+  });
+
+  afterAll(async () => {
+    await server.stop();
+  });
+
   it('should response 404 when request unregistered route', async () => {
     // Arrange
-    const server = await createServer({});
 
     // Action
     const response = await server.inject({
@@ -17,7 +27,7 @@ describe('HTTP server', () => {
 
   it('should return 200 and hello world', async () => {
     // Arrange
-    const server = await createServer({});
+
     // Action
     const response = await server.inject({
       method: 'GET',
@@ -36,7 +46,6 @@ describe('HTTP server', () => {
       fullname: 'Dicoding Indonesia',
       password: 'super_secret',
     };
-    const server = await createServer({}); // fake injection
 
     // Action
     const response = await server.inject({
