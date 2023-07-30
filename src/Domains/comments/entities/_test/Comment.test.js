@@ -11,6 +11,7 @@ describe('Comment entities', () => {
       is_delete: true,
       content: 'content',
       replies: [],
+      likeCount: {},
     };
 
     // Action & Assert
@@ -26,6 +27,7 @@ describe('Comment entities', () => {
       is_delete: true,
       content: 'content',
       replies: [],
+      likeCount: {},
     };
 
     // Action & Assert
@@ -41,6 +43,7 @@ describe('Comment entities', () => {
       is_delete: true,
       content: 'content',
       replies: [],
+      likeCount: {},
     };
 
     // Action & Assert
@@ -56,6 +59,7 @@ describe('Comment entities', () => {
       is_delete: undefined,
       content: 'content',
       replies: [],
+      likeCount: {},
     };
 
     // Action & Assert
@@ -71,6 +75,7 @@ describe('Comment entities', () => {
       is_delete: true,
       content: undefined,
       replies: [],
+      likeCount: {},
     };
 
     // Action & Assert
@@ -86,6 +91,23 @@ describe('Comment entities', () => {
       is_delete: true,
       content: 'content',
       replies: undefined,
+      likeCount: {},
+    };
+
+    // Action & Assert
+    expect(() => new Comment(payload)).toThrowError('COMMENT.NOT_CONTAIN_NEEDED_PROPERTY');
+  });
+
+  it('should throw error when likeCount not contain needed property', () => {
+    // Arrange
+    const payload = {
+      id: 'comment-123',
+      username: 'username',
+      date: Object('2021-08-08T07:19:09.775Z'),
+      is_delete: true,
+      content: 'content',
+      replies: [],
+      likeCount: undefined,
     };
 
     // Action & Assert
@@ -101,6 +123,7 @@ describe('Comment entities', () => {
       is_delete: true,
       content: 'content',
       replies: [],
+      likeCount: {},
     };
 
     // Action & Assert
@@ -116,6 +139,7 @@ describe('Comment entities', () => {
       is_delete: true,
       content: 'content',
       replies: [],
+      likeCount: {},
     };
 
     // Action & Assert
@@ -131,6 +155,7 @@ describe('Comment entities', () => {
       is_delete: true,
       content: 'content',
       replies: [],
+      likeCount: {},
     };
 
     // Action & Assert
@@ -146,6 +171,7 @@ describe('Comment entities', () => {
       is_delete: 123,
       content: 'content',
       replies: [],
+      likeCount: {},
     };
 
     // Action & Assert
@@ -161,6 +187,7 @@ describe('Comment entities', () => {
       is_delete: false,
       content: 123,
       replies: [],
+      likeCount: {},
     };
 
     // Action & Assert
@@ -176,6 +203,23 @@ describe('Comment entities', () => {
       is_delete: true,
       content: 'content',
       replies: 123,
+      likeCount: {},
+    };
+
+    // Action & Assert
+    expect(() => new Comment(payload)).toThrowError('COMMENT.NOT_MEET_DATA_TYPE_SPECIFICATION');
+  });
+
+  it('should throw error when likeCount not meet data type specification', () => {
+    // Arrange
+    const payload = {
+      id: 'comment-123',
+      username: 'username',
+      date: Object('2021-08-08T07:19:09.775Z'),
+      is_delete: true,
+      content: 'content',
+      replies: [],
+      likeCount: 123,
     };
 
     // Action & Assert
@@ -191,6 +235,7 @@ describe('Comment entities', () => {
       is_delete: false,
       content: 'content',
       replies: [],
+      likeCount: {},
     };
 
     // Action
@@ -213,6 +258,7 @@ describe('Comment entities', () => {
       is_delete: true,
       content: 'content',
       replies: [],
+      likeCount: {},
     };
 
     // Action

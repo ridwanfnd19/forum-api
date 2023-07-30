@@ -1,24 +1,14 @@
 /* eslint-disable camelcase */
 exports.up = (pgm) => {
-  pgm.createTable('replies', {
+  pgm.createTable('commentlikes', {
     id: {
       type: 'VARCHAR(50)',
       primaryKey: true,
-    },
-    content: {
-      type: 'TEXT',
-      notNull: true,
     },
     thread_id: {
       type: 'VARCHAR(50)',
       notNull: true,
       references: 'threads(id)',
-      onDelete: 'cascade',
-    },
-    comment_id: {
-      type: 'VARCHAR(50)',
-      notNull: true,
-      references: 'comments(id)',
       onDelete: 'cascade',
     },
     owner: {
@@ -27,20 +17,25 @@ exports.up = (pgm) => {
       references: 'users(id)',
       onDelete: 'cascade',
     },
+    comment_id: {
+      type: 'VARCHAR(50)',
+      notNull: true,
+      references: 'comments(id)',
+      onDelete: 'cascade',
+    },
     date: {
       type: 'timestamp',
       notNull: true,
       default: pgm.func('current_timestamp'),
     },
-    is_delete: {
-      type: 'bool',
-      default: 'false',
-    },
   });
+
+  pgm.addConstraint('commentlikes',
+      'unique_owner_and_comment_id_and_thread_id', 'UNIQUE(owner, comment_id, thread_id)',
+  );
 };
 
 exports.down = (pgm) => {
-  pgm.dropTable('replies');
+  pgm.dropTable('commentlikes');
 };
-
 

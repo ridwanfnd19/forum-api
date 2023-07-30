@@ -7,8 +7,16 @@ const container = require('../../container');
 const createServer = require('../createServer');
 
 describe('/comments endpoint', () => {
+  let server;
+
+  beforeAll(async () => {
+    server = await createServer(container);
+    await server.start();
+  });
+
   afterAll(async () => {
     await pool.end();
+    await server.stop();
   });
 
   afterEach(async () => {
@@ -24,8 +32,6 @@ describe('/comments endpoint', () => {
       const payload = {
         content: 'sebuah content',
       };
-
-      const server = await createServer(container);
 
       // add user 1
       await server.inject({
@@ -117,8 +123,6 @@ describe('/comments endpoint', () => {
         content: 'sebuah content',
       };
 
-      const server = await createServer(container);
-
       // add user 1
       await server.inject({
         method: 'POST',
@@ -186,8 +190,6 @@ describe('/comments endpoint', () => {
       const payload = {
         content: 123,
       };
-
-      const server = await createServer(container);
 
       // add user 1
       await server.inject({
@@ -273,8 +275,6 @@ describe('/comments endpoint', () => {
         content: 'sebuah content',
       };
 
-      const server = await createServer(container);
-
       // add user 1
       await server.inject({
         method: 'POST',
@@ -354,7 +354,6 @@ describe('/comments endpoint', () => {
   describe('when Delete /threads/{threadId}/comments/{commentId}', () => {
     it('should response 200 and delete comment', async () => {
       // Arrange
-      const server = await createServer(container);
 
       // add user 1
       await server.inject({
@@ -453,7 +452,6 @@ describe('/comments endpoint', () => {
 
     it('should response 401 when delete comment with no authentication', async () => {
       // Arrange
-      const server = await createServer(container);
 
       // add user 1
       await server.inject({
@@ -547,7 +545,6 @@ describe('/comments endpoint', () => {
 
     it('should response 404 when delete comment with no found comment', async () => {
       // Arrange
-      const server = await createServer(container);
 
       // add user 1
       await server.inject({
@@ -641,7 +638,6 @@ describe('/comments endpoint', () => {
 
     it('should response 403 when delete comment with invalid owner', async () => {
       // Arrange
-      const server = await createServer(container);
 
       // add user 1
       await server.inject({
