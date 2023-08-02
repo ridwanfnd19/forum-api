@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 const pool = require('../src/Infrastructures/database/postgres/pool');
 
 const RepliesTableTestHelper = {
@@ -8,16 +9,6 @@ const RepliesTableTestHelper = {
     const query = {
       text: 'INSERT INTO replies VALUES($1, $2, $3, $4, $5, $6)',
       values: [id, content, threadId, commentId, owner, date],
-    };
-
-    await pool.query(query);
-  },
-
-  async deleteReplies(repliesId = 'replies-123') {
-    const date = new Date().toISOString();
-    const query = {
-      text: `UPDATE replies SET is_delete = true, date = $2 WHERE id = $1 RETURNING id`,
-      values: [repliesId, date],
     };
 
     await pool.query(query);
