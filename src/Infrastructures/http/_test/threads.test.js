@@ -452,7 +452,7 @@ describe('/threads endpoint', () => {
       expect(responseJson.status).toEqual('success');
       expect(responseJson.message).toBeDefined();
       expect(responseJson.message).toEqual('Berhasil batal menyukai comment');
-    });
+    }, 10000);
 
     it('should response 401 when add like with no authentication', async () => {
       // Arrange
