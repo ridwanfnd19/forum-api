@@ -11,7 +11,6 @@ describe('/threads endpoint', () => {
   let server;
 
   beforeAll(async () => {
-    jest.useRealTimers();
     server = await createServer(container);
     await server.start();
   });
@@ -254,8 +253,6 @@ describe('/threads endpoint', () => {
   });
 
   describe('when PUT /threads/{threadId}/comments/{commentId}/likes', () => {
-    jest.useFakeTimers('legacy');
-
     it('should response 200 and added like', async () => {
       // Arrange
       // add user
@@ -354,7 +351,6 @@ describe('/threads endpoint', () => {
 
     it('should response 200 and delete like', async () => {
       // Arrange
-      jest.useFakeTimers('legacy');
       // add user
       await server.inject({
         method: 'POST',
