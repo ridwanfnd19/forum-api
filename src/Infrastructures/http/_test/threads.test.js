@@ -11,6 +11,7 @@ describe('/threads endpoint', () => {
   let server;
 
   beforeAll(async () => {
+    jest.useRealTimers();
     server = await createServer(container);
     await server.start();
   });
